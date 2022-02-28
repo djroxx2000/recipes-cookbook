@@ -1,0 +1,47 @@
+.Notification {
+    width: 400px;
+    position: fixed;
+    top: 0.6rem;
+    right: 0.6rem;
+    color: #cfcfcf;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: 0.4rem;
+    padding: 1rem;
+    z-index: 6;
+    background: black;
+}
+
+.notif-info {
+    background: var(--color-primary-accent);
+}
+
+.notif-alert {
+    background: #df5246;
+}
+
+.notif-message {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.notif-btn-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hide {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .Notification {
+        top: 2vw;
+        right: 2vw;
+        width: 85vw;
+        position: fixed;
+        margin: auto;
+    }
+}

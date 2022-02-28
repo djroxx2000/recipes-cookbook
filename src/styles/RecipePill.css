@@ -1,0 +1,110 @@
+.RecipePill {
+    border-radius: 0.4em;
+    min-height: 220px;
+    padding: 0 1em 0.6em 1em;
+    overflow: hidden;
+    /* justify-content: flex-start; */
+    position: relative;
+}
+
+.RecipePill:hover {
+    cursor: pointer;
+}
+
+.recipe-pill-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: opacity 300ms linear;
+    /* background: red; */
+}
+
+.recipe-pill-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 2.4em;
+    font-family: 'Redressed', cursive;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* .recipe-pill-title::after {
+    content: '';
+    height: 2px;
+    bottom: 0;
+    display: block;
+    background: black;
+} */
+
+.separator {
+    height: 0.1em;
+    width: 100%;
+    background: black;
+    margin: 0.4em 0;
+}
+
+.recipe-pill-desc-wrapper {
+    font-size: 1.1em;
+    border-radius: 0.4em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    /* display: none; */
+    box-sizing: border-box;
+    transition: transform 300ms linear;
+    transform: translateY(-100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.recipe-pill-bottom {
+    height: 3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: var(--color-primary-dark)2f; */
+    border-radius: 0.5em;
+}
+
+.recipe-pill-data {
+    font-size: 1em;
+    font-weight: 500;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    /* color: white; */
+}
+
+.mobile-desc-wrapper {
+    margin-top: 0.4em;
+    display: flex;
+    padding: 0.2em;
+    justify-content: center;
+    font-size: 1rem;
+    z-index:5;
+}
+
+.mobile-desc-btn {
+    font-weight: 700;
+    padding: 0.3em 0.8em;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 420px) {
+    .recipe-pill-title {
+        font-size: 2.2em;
+    }
+
+    .recipe-pill-data {
+        font-size: 0.8em;
+        padding: 0.7em;
+    }
+}
