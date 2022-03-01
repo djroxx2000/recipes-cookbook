@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
 			req.body.tags,
 		]);
 		client.release();
-		res.status(200).json({ status: CODES.SUCCESS });
+		res.status(200).json({ status: CODES.SUCCESS, insertedId: insertRes.rows[0].id });
 	} catch (error) {
 		console.log('Recipe Insert Error: ' + error.message);
 		res.status(500).json({
