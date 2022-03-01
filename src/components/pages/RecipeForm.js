@@ -103,11 +103,17 @@ function RecipeForm() {
 				payload: { notifOpen: true, notifMessage: msg, notifStatus: status },
 			});
 			let recipes = state.recipes;
+			console.log('recipetoedit', recipeToEdit);
+			delete reqObj.ingredients;
+			delete reqObj.steps;
+			delete reqObj.tags;
 			if (recipeToEdit !== null) {
+				reqObj.id = recipeToEdit.id;
 				recipes = recipes.map((recipe) =>
 					recipe.id === recipeToEdit.id ? reqObj : recipe
 				);
 			} else {
+				reqObj.id = resObj.insertedId;
 				recipes.push(reqObj);
 			}
 			dispatch({
@@ -348,6 +354,7 @@ function RecipeForm() {
 	};
 
 	const viewRecipe = (_, recipe) => {
+		console.log('viewing', recipe);
 		dispatch({
 			type: 'set_current_recipe',
 			payload: {

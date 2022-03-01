@@ -62,7 +62,7 @@ export const reducer = (state, action) => {
 
 export const initialState = {
 	// serverHost: 'http://localhost:5000',
-	debug: true,
+	debug: false,
 	serverHost: 'https://mom-cookbook-server.herokuapp.com',
 	username: '',
 	// themeDark: true,
