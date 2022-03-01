@@ -14,7 +14,6 @@ function RecipeForm() {
 	const navigate = useNavigate();
 
 	const recipeForm = useRef(null);
-	const [loggedIn, setLoggedIn] = useState(false);
 	const [formTitle, setFormTitle] = useState('Add New Recipe');
 	const [recipeToEdit, setRecipeToEdit] = useState(null);
 	const [cuisine, setCuisine] = useState('Indian');
@@ -102,6 +101,18 @@ function RecipeForm() {
 			dispatch({
 				type: 'toggle_notification',
 				payload: { notifOpen: true, notifMessage: msg, notifStatus: status },
+			});
+			let recipes = state.recipes;
+			if (recipeToEdit !== null) {
+				recipes = recipes.map((recipe) =>
+					recipe.id === recipeToEdit.id ? reqObj : recipe
+				);
+			} else {
+				recipes.push(reqObj);
+			}
+			dispatch({
+				type: 'put_recipes',
+				payload: recipes,
 			});
 		} catch (error) {
 			dispatch({
@@ -318,6 +329,10 @@ function RecipeForm() {
 					notifStatus: status,
 				},
 			});
+			dispatch({
+				type: 'put_recipes',
+				payload: state.recipes.filter((r) => r.id !== recipe.id),
+			});
 			window.scrollTo(0, 0);
 		} catch (error) {
 			dispatch({
@@ -343,7 +358,7 @@ function RecipeForm() {
 				duration: recipe.duration,
 			},
 		});
-		navigate('/recipe');
+		navigate('/recipe/' + recipe.id);
 	};
 
 	useEffect(async () => {

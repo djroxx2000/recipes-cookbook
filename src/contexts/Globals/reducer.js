@@ -24,6 +24,11 @@ export const reducer = (state, action) => {
 				...state,
 				recipes: action.payload,
 			};
+		case 'put_recipe':
+			return {
+				...state,
+				recipes: [...state.recipes, action.payload],
+			};
 		case 'set_current_recipe':
 			return {
 				...state,
@@ -57,7 +62,7 @@ export const reducer = (state, action) => {
 
 export const initialState = {
 	// serverHost: 'http://localhost:5000',
-	debug: false,
+	debug: true,
 	serverHost: 'https://mom-cookbook-server.herokuapp.com',
 	username: '',
 	// themeDark: true,
