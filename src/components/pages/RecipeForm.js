@@ -103,7 +103,6 @@ function RecipeForm() {
 				payload: { notifOpen: true, notifMessage: msg, notifStatus: status },
 			});
 			let recipes = state.recipes;
-			console.log('recipetoedit', recipeToEdit);
 			delete reqObj.ingredients;
 			delete reqObj.steps;
 			delete reqObj.tags;
@@ -354,7 +353,6 @@ function RecipeForm() {
 	};
 
 	const viewRecipe = (_, recipe) => {
-		console.log('viewing', recipe);
 		dispatch({
 			type: 'set_current_recipe',
 			payload: {
